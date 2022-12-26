@@ -8,7 +8,6 @@ import "../../responsiveStyles.css";
 function Home() {
   return (
     <div className="home">
-    <p>sallam</p>
       <SelectedUserProvider>
         <ContactSide />
         <AddTextProvider>
