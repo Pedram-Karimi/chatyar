@@ -110,6 +110,7 @@ function ContactSide() {
             <SideMenu />
             <SMToggleBtn />
           </SideMenuProvider>
+           <p>salljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjam</p>
           <input
             placeholder="search for your friends..."
             value={searchInput}
