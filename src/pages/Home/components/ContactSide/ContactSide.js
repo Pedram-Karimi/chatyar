@@ -41,8 +41,8 @@ function ContactSide() {
     }
 
     const client = algoliasearch(
-      "RPX6XE5QIU",
-      "972f99ffa982ad7c6705de32534d3949"
+      "V72F27H9FY",
+      "97b5d713b756d046460945cdafd52150",
     );
     const index = client.initIndex("users");
 
@@ -78,7 +78,7 @@ function ContactSide() {
         const roomsRef = collection(db, "rooms");
         const q = query(
           roomsRef,
-          where("messengersArr", "array-contains", userDataState.user.uid)
+          where("messengersArr", "array-contains", userDataState.user.uid),
         );
         const getRooms = await getDocs(q).then((coll) => {
           coll.docs.forEach((doc) => {

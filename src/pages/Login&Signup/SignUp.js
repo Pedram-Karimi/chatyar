@@ -32,7 +32,7 @@ function SignUp() {
       const user = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
-        registerPassword
+        registerPassword,
       );
 
       // saving users name in the db ---
@@ -44,14 +44,14 @@ function SignUp() {
           userName: registerFirstName,
           bio: "",
         },
-        { merge: true }
+        { merge: true },
       );
 
       // saving user id to the search service servers ---
 
       const client = algoliasearch(
-        "RPX6XE5QIU",
-        "972f99ffa982ad7c6705de32534d3949"
+        "V72F27H9FY",
+        "97b5d713b756d046460945cdafd52150",
       );
       const index = client.initIndex("users");
 
