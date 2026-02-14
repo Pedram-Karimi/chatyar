@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Chatyar is a real-time chat app built with React and Firebase. It supports user sign-up/login, searching for users, and chatting with contacts in a simple, responsive UI.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
