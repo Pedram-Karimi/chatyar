@@ -12,8 +12,31 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
-export const auth = getAuth(app);
+const hasFirebaseConfig = Boolean(
+  firebaseConfig.apiKey &&
+    firebaseConfig.authDomain &&
+    firebaseConfig.projectId &&
+    firebaseConfig.storageBucket &&
+    firebaseConfig.messagingSenderId &&
+    firebaseConfig.appId
+);
+
+let app = null;
+export let firebaseInitError = null;
+
+if (!hasFirebaseConfig) {
+  firebaseInitError = new Error(
+    "Missing Firebase configuration. Add REACT_APP_ env variables and rebuild."
+  );
+} else {
+  try {
+    app = initializeApp(firebaseConfig);
+  } catch (error) {
+    firebaseInitError = error;
+  }
+}
+
+export const isFirebaseReady = app !== null;
+export const db = app ? getFirestore(app) : null;
+export const storage = app ? getStorage(app) : null;
+export const auth = app ? getAuth(app) : null;
