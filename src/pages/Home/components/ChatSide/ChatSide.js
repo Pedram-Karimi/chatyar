@@ -76,7 +76,7 @@ function ChatSide() {
         where("messengers", "in", [
           `${selected?.id}%${userDataState.user.uid}`,
           `${userDataState.user.uid}%${selected?.id}`,
-        ])
+        ]),
       );
       const getChats = async () => {
         const getRooms = await getDocs(q).then(async (coll) => {
@@ -84,7 +84,7 @@ function ChatSide() {
             const fixedTime = tConvert(
               new Date(Math.floor(Date.now() / 1000) * 1000)
                 ?.toString()
-                ?.split(" ")[4]
+                ?.split(" ")[4],
             );
             let arr = fixedTime.split(" ")[0].split(":");
             arr.pop();
@@ -103,7 +103,7 @@ function ChatSide() {
           const orderedQ = query(
             collection(db, "rooms", coll.docs[0]?.id, "chats"),
             orderBy("createdAt"),
-            limit(100)
+            limit(100),
           );
           // console.log("it gets run outside");
           const messDoc = await onSnapshot(orderedQ, (messages) => {
@@ -125,7 +125,7 @@ function ChatSide() {
               const fixedTime = tConvert(
                 new Date(message.data().createdAt?.seconds * 1000)
                   ?.toString()
-                  ?.split(" ")[4]
+                  ?.split(" ")[4],
               );
 
               let arr = fixedTime.split(" ")[0].split(":");
@@ -195,10 +195,7 @@ function ChatSide() {
         </div>
       </div>
       {selected && <WriteText />}
-      <img
-        src="https://firebasestorage.googleapis.com/v0/b/chating-app-2db46.appspot.com/o/413834.jpg?alt=media&token=5479aac1-c74a-4504-97c9-b50894c6f5a4"
-        className="bg-image"
-      />
+      <img src="https://i.postimg.cc/k4SgX0p5/1.jpg" className="bg-image" />
     </div>
   );
 }

@@ -6,8 +6,8 @@
   transition: 0.2s;
 }
 .bg-image {
-  width: 100%;
   height: 100%;
+  background-size: cover;
   z-index: 1;
 }
 .chat-desk {
